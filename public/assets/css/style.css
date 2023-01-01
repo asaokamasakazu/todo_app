@@ -1,0 +1,47 @@
+/*=== COMMON ===*/
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    word-break: break-word;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    background: #f9fbfe;
+}
+a {
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+}
+li {
+    list-style-type: none;
+}
+input,
+select,
+textarea,
+button {
+    font-size: 100%;
+    font-family: inherit;
+}
+textarea {
+    font-family : "Arial", "Hiragino Kaku Gothic ProN";
+    display: block;
+    resize: vertical;
+}
+
+/*=== FOOTER ===*/
+footer {
+    position: sticky;
+    top: 100vh;
+    width: 100%;
+    background-color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    border-top: 1px solid #eee;
+    padding: 15px 10px;
+    text-align: center;
+}
