@@ -11,6 +11,11 @@ class UserController extends Controller
     // 詳細画面の表示
     public function show($id) {
         $user = User::find($id);
+
+        if (auth()->id() != $user->id) {
+            return redirect('/');
+        }
+
         return view('auth.show', compact('user'));
     }
 
