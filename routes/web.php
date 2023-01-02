@@ -11,4 +11,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/user/{id}', [UserController::class, 'show'])->name('user.show');
+Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
+
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::patch('/users/{id}', [UserController::class, 'update'])->name('user.update');
