@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-header">{{ $user->name }}のマイページ</div>
                     <div class="card-body">
-                        <a href="#" class="btn btn-primary mb-3">編集する</a>
+                        <a href="{{ route('user.edit', $user) }}" class="btn btn-primary mb-3">編集する</a>
                         <p>ユーザー名: {{ $user->name }}</p>
                         <p>メールアドレス: {{ $user->email }}</p>
                         <p>パスワード: *****</p>
