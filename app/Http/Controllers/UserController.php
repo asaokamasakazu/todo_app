@@ -49,4 +49,16 @@ class UserController extends Controller
         $user->fill($form)->save();
         return redirect()->route('user.show', $user);
     }
+
+    // アカウントの削除
+    public function destroy($id) {
+        $user = User::find($id);
+
+        if (auth()->id() != $user->id) {
+            return redirect('/');
+        }
+ 
+        $user->delete();
+        return redirect('/');
+    }
 }
