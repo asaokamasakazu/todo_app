@@ -1,3 +1,12 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
 /*=== COMMON ===*/
 * {
     margin: 0px;
@@ -45,27 +54,41 @@ header {
     z-index: 100;
 }
 .header-container {
-    max-width: 950px;
+    max-width: 870px;
     margin: 0 auto;
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.header-container a {
-    height: 48px;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    margin: 0 9px;
-    transition: all .2s;
-}
-.header-container a:hover {
-    opacity: 0.8;
-    box-shadow: inset 0 -4px 0 0 #2db68f
+    a {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        margin: 0 9px;
+        transition: all .2s;
+    }
+    a:hover {
+        opacity: 0.8;
+        box-shadow: inset 0 -4px 0 0 #2db68f
+    }
 }
 .header-home-a {
     font-size: 1.2rem;
+}
+.header-delete-form {
+    input {
+        height: 48px;
+        border: none;
+        background: none;
+        font-weight: bold;
+        margin: 0 9px;
+        transition: all .2s;
+    }
+    input:hover {
+        opacity: 0.8;
+        box-shadow: inset 0 -4px 0 0 #2db68f
+    }
 }
 .under-header {
     height: 48px;
@@ -84,3 +107,11 @@ footer {
     padding: 15px 10px;
     text-align: center;
 }
+
+/*=== TEMPLATE ===*/
+.main {
+    padding-top: 35px;
+}
+
+/*========= USERS =========*/
+/*=== USERS/SHOW ===*/
