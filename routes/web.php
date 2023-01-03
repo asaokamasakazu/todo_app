@@ -9,8 +9,6 @@ Route::get("/", function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
 
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
