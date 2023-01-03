@@ -160,3 +160,31 @@ footer {
         text-decoration: underline;
     }
 }
+
+/*=== TASKS/SHOW ===*/
+.show-btns {
+    display: flex;
+    align-items: center;
+    a {
+        margin-right: 5px;
+    }
+}
+.show-delete-form {
+    input {
+        display: inline-block;
+        border: none;
+        background: none;
+        color: #fff;
+        
+    }
+}
+.show-table {
+    width: 100%;
+    border-bottom: 1px solid #dce2e8;
+    th,
+    td {
+        padding: 0.8rem;
+        vertical-align: middle;
+        border-top: 1px solid #dce2e8;
+    }
+}
