@@ -14,6 +14,11 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
+            <form class="header-delete-form" action="{{route('user.destroy', ['id'=>auth()->id()])}}" method="post">
+                @csrf
+                @method('delete')
+                <input type="submit" value="退会" onclick='return confirm("アカウントを削除しますか？");'>
+            </form>
         @else
             <a href="{{ route('register') }}">新規登録</a>
             <a href="{{ route('login') }}">ログイン</a>
