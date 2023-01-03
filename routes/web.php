@@ -4,9 +4,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
-Route::get("/", function () {
-    return view("layouts.application");
-});
+Route::get('/', [TaskController::class, 'index']);
 
 Auth::routes();
 
@@ -17,4 +15,4 @@ Route::patch('/users/{id}', [UserController::class, 'update'])->name('user.updat
 
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
-Route::resource('tasks', TaskController::class);
+Route::resource('tasks', TaskController::class, ['except' => 'index']);
