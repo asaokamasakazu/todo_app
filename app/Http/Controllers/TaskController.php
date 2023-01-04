@@ -24,6 +24,7 @@ class TaskController extends Controller
         if (Auth::check()) {
             $keyword = $request->input('keyword');
 
+            // 検索フォームの値の有無に応じて$tasksを分岐
             if (!empty($keyword)) {
                 $tasks = Task::with('user')->where('user_id', Auth::id())
                     ->where(function ($query) use ($keyword) {
@@ -36,6 +37,7 @@ class TaskController extends Controller
             $keyword = "";
             $tasks = "";
         }
+
         return view('tasks.index', compact('tasks', 'keyword'));
     }
 
