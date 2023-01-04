@@ -44,7 +44,7 @@ class TaskController extends Controller
     {
         $this->validate($request, Task::$rules);
         $task = new Task;
-        $form = $request->all();
+        $form = $request->all() + ['user_id' => Auth::id()];
         unset($form['_token']);
         $task->fill($form)->save();
         return redirect('/');

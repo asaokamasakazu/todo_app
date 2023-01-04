@@ -12,7 +12,6 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('tasks.store') }}">
                             @csrf
-                            <input type="hidden" name="user_id" value="{{ auth()->id() }}">
 
                             <div class="row mb-3">
                                 <label for="task_name" class="col-md-4 col-form-label text-md-end">タスク名</label>
