@@ -19,14 +19,23 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index (Request $request)
     {
         if (Auth::check()) {
-            $tasks = Auth::user()->tasks;
+            $keyword = $request->input('keyword');
+
+            if (!empty($keyword)) {
+                $tasks = Task::where('user_id', Auth::user()->id)
+                    ->where(function ($query) use ($keyword) {
+                        $query->where('task_name', 'LIKE', "%{$keyword}%")->orWhere('description', 'LIKE', "%{$keyword}%");
+                    })->get();
+            } else {
+                $tasks = Auth::user()->tasks;
+            }
         } else {
             $tasks = "";
         }
-        return view('tasks.index', compact('tasks'));
+        return view('tasks.index', compact('tasks', 'keyword'));
     }
 
     /**
