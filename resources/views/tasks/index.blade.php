@@ -33,7 +33,7 @@
                         <tr>
                             <td>{{ $task->task_name }}</td>
                             <td>{{ $task->status }}</td>
-                            <td>{{ $task->deadline }}</td>
+                            <td>{{ $task->deadline->format('Y / m / d (D)') }}</td>
                             <td><a href="{{ route('tasks.show', $task) }}">詳細</a></td>
                             <td><a href="{{ route('tasks.edit', $task) }}">編集</a></td>
                             <td>

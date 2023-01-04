@@ -29,9 +29,9 @@ class TaskController extends Controller
                 $tasks = Task::with('user')->where('user_id', Auth::id())
                     ->where(function ($query) use ($keyword) {
                         $query->where('task_name', 'LIKE', "%{$keyword}%")->orWhere('description', 'LIKE', "%{$keyword}%");
-                    })->get();
+                    })->get()->sortBy('deadline');
             } else {
-                $tasks = Task::with('user')->where('user_id', Auth::id())->get();
+                $tasks = Task::with('user')->where('user_id', Auth::id())->get()->sortBy('deadline');
             }
         } else {
             $keyword = "";

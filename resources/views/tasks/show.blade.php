@@ -31,7 +31,7 @@
             </tr>
             <tr>
                 <th>期限</th>
-                <td>{{ $task->deadline }}</td>
+                <td>{{ $task->deadline->format('Y / m / d (D)') }}</td>
             </tr>
         </table>
     </div>
