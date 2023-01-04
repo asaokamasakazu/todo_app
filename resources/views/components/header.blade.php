@@ -4,7 +4,7 @@
             <i class="fa-solid fa-house"></i>
         </a>
         @auth
-            <a href="#">タスク登録</a>
+            <a href="{{ route('tasks.create') }}">タスク登録</a>
             <a href="{{ route('user.show', ['id'=>auth()->id()]) }}">マイページ</a>
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();

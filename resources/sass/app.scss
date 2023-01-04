@@ -112,6 +112,96 @@ footer {
 .main {
     padding-top: 35px;
 }
+.main-container {
+    max-width: 870px;
+    margin: 0 auto;
+}
 
-/*========= USERS =========*/
-/*=== USERS/SHOW ===*/
+/*========= TASKS =========*/
+/*=== TASKS/INDEX ===*/
+.top-table {
+    width: 100%;
+    border-bottom: 1px solid #dce2e8;
+    th,
+    td {
+        padding: 0.8rem;
+        vertical-align: middle;
+        border-top: 1px solid #dce2e8;
+    }
+    a {
+        padding: 7px;
+        border-radius: 3px;
+        background-color: #8a8539;
+        color: #fff;
+    }
+    a:hover {
+        opacity: 0.7;
+    }
+}
+.table-delete-form {
+    input {
+        border: none;
+        background: none;
+        padding: 7px;
+        border-radius: 3px;
+        background-color: #8a8539;
+        color: #fff;
+    }
+    input:hover {
+        opacity: 0.7;
+    }
+}
+.top-message {
+    margin-top: 30px;
+    a {
+        color: rgb(89, 89, 255);
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+.top-under-h1 {
+    display: flex;
+    justify-content: space-between;
+}
+.search-form {
+    display: flex;
+    form {
+        display: flex;
+    }
+    input {
+        width: 200px;
+    }
+    button {
+        width: 75px;
+        margin-left: 10px;
+    }
+}
+
+/*=== TASKS/SHOW ===*/
+.show-btns {
+    display: flex;
+    align-items: center;
+    a {
+        margin-right: 5px;
+    }
+}
+.show-delete-form {
+    input {
+        display: inline-block;
+        border: none;
+        background: none;
+        color: #fff;
+        
+    }
+}
+.show-table {
+    width: 100%;
+    border-bottom: 1px solid #dce2e8;
+    th,
+    td {
+        padding: 0.8rem;
+        vertical-align: middle;
+        border-top: 1px solid #dce2e8;
+    }
+}
