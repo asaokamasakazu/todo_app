@@ -8,11 +8,11 @@ Route::get('/', [TaskController::class, 'index'])->name('top');
 
 Auth::routes();
 
-Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
-
-Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
-Route::patch('/users/{id}', [UserController::class, 'update'])->name('user.update');
-
-Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+Route::prefix('users')->name('user.')->group(function () {
+    Route::get('{id}', [UserController::class, 'show'])->name('show');
+    Route::get('{id}/edit', [UserController::class, 'edit'])->name('edit');
+    Route::patch('{id}', [UserController::class, 'update'])->name('update');
+    Route::delete('{id}', [UserController::class, 'destroy'])->name('destroy');
+});
 
 Route::resource('tasks', TaskController::class, ['except' => 'index']);
