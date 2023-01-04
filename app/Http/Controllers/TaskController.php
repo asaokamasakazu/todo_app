@@ -81,7 +81,14 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task = Task::find($id);
+        $today = date("Y-m-d");
+
+        if (auth()->id() != $task->user_id) {
+            return redirect('/');
+        }
+
+        return view('tasks.edit', compact('task', 'today'));
     }
 
     /**
@@ -93,7 +100,17 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = Task::find($id);
+
+        if (auth()->id() != $task->user_id) {
+            return redirect('/');
+        }
+
+        $this->validate($request, Task::$rules);
+        $form = $request->all();
+        unset($form['_token']);
+        $task->fill($form)->save();
+        return redirect()->route('tasks.show', $task);
     }
 
     /**
