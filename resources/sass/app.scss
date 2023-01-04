@@ -160,6 +160,23 @@ footer {
         text-decoration: underline;
     }
 }
+.top-under-h1 {
+    display: flex;
+    justify-content: space-between;
+}
+.search-form {
+    display: flex;
+    form {
+        display: flex;
+    }
+    input {
+        width: 200px;
+    }
+    button {
+        width: 75px;
+        margin-left: 10px;
+    }
+}
 
 /*=== TASKS/SHOW ===*/
 .show-btns {

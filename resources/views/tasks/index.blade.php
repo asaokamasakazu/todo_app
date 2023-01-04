@@ -7,7 +7,18 @@
     <div class="main-container">
         @auth
             <h1>{{ auth()->user()->name }}さん、ToDoアプリへようこそ</h1>
-            <a href="{{ route('tasks.create') }}" class="btn btn-primary mt-4 mb-3">タスクを登録する</a>
+            <div class="top-under-h1 mt-5 mb-3">
+                <a href="{{ route('tasks.create') }}" class="btn btn-primary">タスクを登録する</a>
+                <div class="search-form">
+                    <form>
+                        <input type="search" name="keyword" class="form-control" value="{{ $keyword }}" placeholder="キーワードで検索">
+                        <button type="submit" class="btn btn-secondary">検索</button>
+                    </form>
+                    <button class="btn btn-dark">
+                        <a href="{{ route('top') }}" class="text-white">クリア</a>
+                    </button>
+                </div>
+            </div>
             <table class="top-table">
                 <thead>
                     <tr>
