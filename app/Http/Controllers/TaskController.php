@@ -30,7 +30,8 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        $today = date("Y-m-d");
+        return view('tasks.create', compact('today'));
     }
 
     /**
@@ -41,7 +42,12 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, Task::$rules);
+        $task = new Task;
+        $form = $request->all();
+        unset($form['_token']);
+        $task->fill($form)->save();
+        return redirect('/');
     }
 
     /**
