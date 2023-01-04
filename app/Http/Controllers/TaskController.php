@@ -15,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        if (Auth::user()) {
+        if (Auth::check()) {
             $tasks = Auth::user()->tasks;
         } else {
             $tasks = "";
