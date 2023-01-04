@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -14,7 +15,11 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        if (Auth::user()) {
+            $tasks = Auth::user()->tasks;
+        } else {
+            $tasks = "";
+        }
         return view('tasks.index', compact('tasks'));
     }
 
