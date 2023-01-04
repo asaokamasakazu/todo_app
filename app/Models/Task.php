@@ -10,6 +10,7 @@ class Task extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $dates = ['deadline'];
 
     public static $rules = [
         'task_name' => 'required|string|max:20',
