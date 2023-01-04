@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    // indexアクション以外をログイン必須に設定
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'index']);
+    }
+
     /**
      * Display a listing of the resource.
      *
