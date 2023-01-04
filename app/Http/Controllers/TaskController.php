@@ -25,12 +25,12 @@ class TaskController extends Controller
             $keyword = $request->input('keyword');
 
             if (!empty($keyword)) {
-                $tasks = Task::where('user_id', Auth::user()->id)
+                $tasks = Task::with('user')->where('user_id', Auth::user()->id)
                     ->where(function ($query) use ($keyword) {
                         $query->where('task_name', 'LIKE', "%{$keyword}%")->orWhere('description', 'LIKE', "%{$keyword}%");
                     })->get();
             } else {
-                $tasks = Auth::user()->tasks;
+                $tasks = Task::with('user')->where('user_id', Auth::user()->id)->get();
             }
         } else {
             $keyword = "";
