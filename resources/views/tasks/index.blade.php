@@ -29,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($tasks as $task)
+                    @forelse ($tasks as $task)
                         <tr>
                             <td>{{ $task->task_name }}</td>
                             <td>{{ $task->status }}</td>
@@ -44,7 +44,9 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr><td colspan="6">※NO POST!</td></tr>
+                    @endforelse
                 </tbody>
             </table>
         @else
