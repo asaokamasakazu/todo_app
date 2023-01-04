@@ -33,6 +33,7 @@ class TaskController extends Controller
                 $tasks = Auth::user()->tasks;
             }
         } else {
+            $keyword = "";
             $tasks = "";
         }
         return view('tasks.index', compact('tasks', 'keyword'));
