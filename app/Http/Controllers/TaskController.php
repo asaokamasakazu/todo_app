@@ -25,13 +25,13 @@ class TaskController extends Controller
             $keyword = $request->input('keyword');
 
             // 検索フォームの値の有無に応じて$tasksを分岐
-            if (!empty($keyword)) {
+            if (empty($keyword)) {
+                $tasks = Task::with('user')->where('user_id', Auth::id())->get()->sortBy('deadline');
+            } else {
                 $tasks = Task::with('user')->where('user_id', Auth::id())
                     ->where(function ($query) use ($keyword) {
                         $query->where('task_name', 'LIKE', "%{$keyword}%")->orWhere('description', 'LIKE', "%{$keyword}%");
                     })->get()->sortBy('deadline');
-            } else {
-                $tasks = Task::with('user')->where('user_id', Auth::id())->get()->sortBy('deadline');
             }
         } else {
             $keyword = "";
