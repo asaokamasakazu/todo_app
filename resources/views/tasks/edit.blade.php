@@ -65,7 +65,7 @@
                             <div class="row mb-3">
                                 <label for="deadline" class="col-md-4 col-form-label text-md-end">期限</label>
                                 <div class="col-md-6">
-                                    <input id="deadline" type="date" class="form-control @error('deadline') is-invalid @enderror" name="deadline" value="{{ old('deadline') ?? $task->deadline }}" min="{{ $today }}" required>
+                                    <input id="deadline" type="date" class="form-control @error('deadline') is-invalid @enderror" name="deadline" value="{{ old('deadline') ?? $task->deadline->format('Y-m-d') }}" min="{{ $today }}" required>
                                     @error('deadline')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
