@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Http\Requests\TaskRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -58,9 +59,8 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
-        $this->validate($request, Task::$rules);
         $task = new Task;
         $form = $request->all() + ['user_id' => Auth::id()];
         unset($form['_token']);
@@ -110,7 +110,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TaskRequest $request, $id)
     {
         $task = Task::find($id);
 
@@ -118,7 +118,6 @@ class TaskController extends Controller
             return redirect('/');
         }
 
-        $this->validate($request, Task::$rules);
         $form = $request->all();
         unset($form['_token']);
         $task->fill($form)->save();
