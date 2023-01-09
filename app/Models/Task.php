@@ -12,12 +12,13 @@ class Task extends Model
     protected $guarded = ['id'];
     protected $dates = ['deadline'];
 
-    public static $rules = [
-        'task_name' => 'required|string|max:20',
-        'description' => 'required|string|max:500',
-        'status' => 'required|string',
-        'deadline' => 'required|date|after_or_equal:today'
-    ];
+    // フォームリクエストに移行したためコメントアウト
+    // public static $rules = [
+    //     'task_name' => 'required|string|max:20',
+    //     'description' => 'required|string|max:500',
+    //     'status' => 'required|string',
+    //     'deadline' => 'required|date|after_or_equal:today'
+    // ];
 
     public function user()
     {
