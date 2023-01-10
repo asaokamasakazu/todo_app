@@ -80,7 +80,8 @@ class TaskController extends Controller
         $task = Task::find($id);
 
         if (auth()->id() != $task->user_id) {
-            return redirect('/');
+            $flashMessage = __('tasks.show_error');
+            return redirect('/')->with('errorMessage', $flashMessage);
         }
 
         return view('tasks.show', compact('task'));
