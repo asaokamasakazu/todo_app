@@ -65,7 +65,8 @@ class TaskController extends Controller
         $form = $request->all() + ['user_id' => Auth::id()];
         unset($form['_token']);
         $task->fill($form)->save();
-        return redirect('/')->with('successMessage', '登録に成功しました。');
+        $flashMessage = __('tasks.store_success');
+        return redirect('/')->with('successMessage', $flashMessage);
     }
 
     /**
