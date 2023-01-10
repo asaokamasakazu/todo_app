@@ -65,7 +65,8 @@ class TaskController extends Controller
         $form = $request->all() + ['user_id' => Auth::id()];
         unset($form['_token']);
         $task->fill($form)->save();
-        return redirect('/');
+        $flashMessage = __('tasks.store_success');
+        return redirect('/')->with('successMessage', $flashMessage);
     }
 
     /**
@@ -79,7 +80,8 @@ class TaskController extends Controller
         $task = Task::find($id);
 
         if (auth()->id() != $task->user_id) {
-            return redirect('/');
+            $flashMessage = __('tasks.show_error');
+            return redirect('/')->with('errorMessage', $flashMessage);
         }
 
         return view('tasks.show', compact('task'));
@@ -97,7 +99,8 @@ class TaskController extends Controller
         $today = date("Y-m-d");
 
         if (auth()->id() != $task->user_id) {
-            return redirect('/');
+            $flashMessage = __('tasks.edit_error');
+            return redirect('/')->with('errorMessage', $flashMessage);
         }
 
         return view('tasks.edit', compact('task', 'today'));
@@ -121,7 +124,8 @@ class TaskController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $task->fill($form)->save();
-        return redirect()->route('tasks.show', $task);
+        $flashMessage = __('tasks.update_success');
+        return redirect()->route('tasks.show', $task)->with('successMessage', $flashMessage);
     }
 
     /**
@@ -139,6 +143,7 @@ class TaskController extends Controller
         }
 
         $task->delete();
-        return redirect('/');
+        $flashMessage = __('tasks.destroy_success');
+        return redirect('/')->with('successMessage', $flashMessage);
     }
 }
