@@ -143,6 +143,7 @@ class TaskController extends Controller
         }
 
         $task->delete();
-        return redirect('/');
+        $flashMessage = __('tasks.destroy_success');
+        return redirect('/')->with('successMessage', $flashMessage);
     }
 }
