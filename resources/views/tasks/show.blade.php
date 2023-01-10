@@ -7,6 +7,7 @@
 @section('content')
 <div class="main">
     <div class="main-container">
+        @include('components.flash')
         <h1>タスク「{{ $task->task_name }}」の詳細</h1>
         <div class="show-btns mt-4 mb-3">
             <a href="{{ route('tasks.edit', $task) }}" class="btn btn-primary">編集する</a>
