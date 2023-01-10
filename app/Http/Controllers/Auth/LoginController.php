@@ -41,6 +41,7 @@ class LoginController extends Controller
     // ログイン後のリダイレクト先の指定
     public function redirectPath()
     {
+        session()->flash('successMessage', 'ログインしました。');
         return '/';
     }
 }
