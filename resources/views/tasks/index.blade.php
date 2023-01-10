@@ -7,6 +7,11 @@
     <div class="main-container">
         @auth
             <h1>{{ auth()->user()->name }}さん、ToDoアプリへようこそ</h1>
+            @if (session('successMessage'))
+                <div class="alert alert-success text-center mt-2">
+                    {{ session('successMessage') }}
+                </div> 
+            @endif
             <div class="top-under-h1 mt-5 mb-3">
                 <a href="{{ route('tasks.create') }}" class="btn btn-primary">タスクを登録する</a>
                 <div class="search-form">
