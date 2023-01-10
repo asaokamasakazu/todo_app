@@ -99,7 +99,8 @@ class TaskController extends Controller
         $today = date("Y-m-d");
 
         if (auth()->id() != $task->user_id) {
-            return redirect('/');
+            $flashMessage = __('tasks.edit_error');
+            return redirect('/')->with('errorMessage', $flashMessage);
         }
 
         return view('tasks.edit', compact('task', 'today'));
@@ -123,7 +124,8 @@ class TaskController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $task->fill($form)->save();
-        return redirect()->route('tasks.show', $task);
+        $flashMessage = __('tasks.update_success');
+        return redirect()->route('tasks.show', $task)->with('successMessage', $flashMessage);
     }
 
     /**
