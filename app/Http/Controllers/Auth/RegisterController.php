@@ -74,6 +74,7 @@ class RegisterController extends Controller
     // 登録完了後のリダイレクト先の指定
     public function redirectPath()
     {
+        session()->flash('successMessage', 'ユーザー登録が完了しました。');
         return '/';
     }
 }
